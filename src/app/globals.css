@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-poppins);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .carousel-item-left {
+    @apply blur-sm scale-90 -translate-x-1/4; /* Reduced blur, shifted slightly */
+  }
+
+  .carousel-item-right {
+    @apply blur-sm scale-90 translate-x-1/4; /* Reduced blur, shifted slightly */
+  }
+}
+/* Left Arrow */
+.react-3d-carousel .slider-container .slider-left div {
+  background-color: transparent;
+  border-radius: 9999px;
+  border-color: transparent !important;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+
+  cursor: pointer;
+}
+
+/* Right Arrow */
+.react-3d-carousel .slider-container .slider-right div {
+  background-color: transparent;
+  border-radius: 9999px;
+  border-color: transparent !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+
+  /* Slight shadow for elevation */
+  cursor: pointer;
+  border: none;
+}
+
+.react-3d-carousel .slider-container .slider-left div:hover,
+.react-3d-carousel .slider-container .slider-right div:hover {
+  background-color: transparent;
+}
+
+.react-3d-carousel .slider-container .slider-left div::before {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  mask: url('/left-arrow.svg') no-repeat center;
+  -webkit-mask: url('/left-arrow.svg') no-repeat center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  background-color: white;
+}
+
+.react-3d-carousel .slider-container .slider-right div::before {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  mask: url('/right-arrow.svg') no-repeat center;
+  -webkit-mask: url('/right-arrow.svg') no-repeat center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  background-color: white;
+}
+
+.react-3d-carousel .slider-container .slider-content .slider-single .slider-single-content {
+  box-shadow: none !important;
+}
+
+.icon-placeholder {
+  svg {
+    width: 100%;
+    height: 100%;
+    color: white;
+  }
+}
+@media (max-width: 520px) {
+  .react-3d-carousel .slider-container .slider-left {
+    right: 115% !important;
+  }
+  .react-3d-carousel .slider-container .slider-right {
+    left: 115% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .react-3d-carousel .slider-container .slider-left {
+    right: 120% !important;
+  }
+  .react-3d-carousel .slider-container .slider-right {
+    left: 115% !important;
+  }
+}
+
+.carousel-container {
+  min-height: 420px; 
+  overflow: hidden; 
+}
